@@ -18,6 +18,8 @@ margin: 0;
 padding: 0;
 img {
   max-width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 .tags {
   color: black;
@@ -48,7 +50,7 @@ function App() {
   const [pic, setPic] = useState([]);
   const [s, setS] = useState('산');
   const getData = async () => {
-    const data = await fetch(`https://pixabay.com/api/?key=21103852-9b5f4834542caaf4eef2c8533&q=${s}&image_type=photo`).then(r => r.json());
+    const data = await fetch(`https://pixabay.com/api/?key=21103852-9b5f4834542caaf4eef2c8533&q=${s}&image_type=photo&per_page=200&category0`).then(r => r.json());
     console.log(data, data.hits, data.hits[0].id);
     setPic(data.hits);
     console.log(data.hits);
